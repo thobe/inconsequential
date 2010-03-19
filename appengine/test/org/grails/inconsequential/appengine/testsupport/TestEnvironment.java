@@ -12,7 +12,7 @@ import java.util.Map;
  * 
  * @author Guillaume Laforge
  */
-public class TestEnvironment implements ApiProxy.Environment {
+public abstract class TestEnvironment implements ApiProxy.Environment {
     public String getAppId() {
         return "test";
     }

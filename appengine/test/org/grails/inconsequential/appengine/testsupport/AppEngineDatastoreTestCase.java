@@ -14,12 +14,12 @@ import java.io.File;
  *
  * @author Guillaume Laforge
  */
-public class AppEngineDatastoreTestCase extends TestCase {
+public abstract class AppEngineDatastoreTestCase extends TestCase {
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        ApiProxy.setEnvironmentForCurrentThread(new TestEnvironment());
+        ApiProxy.setEnvironmentForCurrentThread(new TestEnvironment() {});
         ApiProxyLocalImpl proxyLocal = new ApiProxyLocalImpl(new File(".")) { };
         proxyLocal.setProperty(LocalDatastoreService.NO_STORAGE_PROPERTY, Boolean.TRUE.toString());
         ApiProxy.setDelegate(proxyLocal);
